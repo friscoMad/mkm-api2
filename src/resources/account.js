@@ -15,7 +15,7 @@ export class Account {
      * Get account information
      * @return {Promise} Account information
      */
-    getAccount() {
+    get() {
         return this.api.makeCall('GET', 'account');
     }
 

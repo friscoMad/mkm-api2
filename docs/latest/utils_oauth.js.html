@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>utils/oauth.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Account.html">Account</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#deleteMessage">deleteMessage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#deleteMessageThreadWith">deleteMessageThreadWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#getMessages">getMessages</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#postMessageTo">postMessageTo</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#setIsOnVacation">setIsOnVacation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#setLanguage">setLanguage</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Cart.html">Cart</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#addArticle">addArticle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#checkout">checkout</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#empty">empty</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#getAvailableShippingMethods">getAvailableShippingMethods</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#removeArticle">removeArticle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#setShippingAddress">setShippingAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#setShippingMethod">setShippingMethod</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#updateArticles">updateArticles</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="module-MkmApi.MkmApi.html">MkmApi</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-MkmApi.MkmApi.html#makeCall">makeCall</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="OAuthHelper.html">OAuthHelper</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OAuthHelper.html#buildAuthorizationHeader">buildAuthorizationHeader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OAuthHelper.html#buildBaseOauthHeaders">buildBaseOauthHeaders</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OAuthHelper.html#buildOauthHeaders">buildOauthHeaders</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OAuthHelper.html#buildSignature">buildSignature</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OAuthHelper.html#changeUser">changeUser</a></span></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-MkmApi.html">MkmApi</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">utils/oauth.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import createHmac from 'create-hmac';
+import randomBytes from 'randombytes';
+import escape from './escape';
+
+/**
+ * Helper class that handles the creation of the OAuth Authentication header
+ */
+export class OAuthHelper {
+    /**
+     * [constructor description]
+     * @param {String} [appToken='']         [description]
+     * @param {String} [appSecret='']        [description]
+     * @param {String} [accessToken='']      [description]
+     * @param {String} [accessTokenSecret=''                 } = {}] [description]
+     */
+    constructor({
+        appToken = '', appSecret = '', accessToken = '', accessTokenSecret = ''
+    } = {}) {
+        this.appToken = appToken;
+        this.appSecret = appSecret;
+        this.accessToken = accessToken;
+        this.accessTokenSecret = accessTokenSecret;
+    }
+
+    /**
+    * Sets the accessToken and accessTokenSecret values
+    * so we can act in behalf of other user
+    * @param  {String} accessToken       - New user access token
+    * @param  {String} accessTokenSecret - New user access token secret
+    */
+    changeUser(accessToken, accessTokenSecret) {
+        this.accessToken = accessToken;
+        this.accessTokenSecret = accessTokenSecret;
+    }
+
+    /**
+     * Creates the authentication headers needed for
+     * a particular url and method
+     * @param  {String} method - Http method of this request
+     * @param  {String} url    - Api endpoint
+     * @param  {String} isPublic - Public or private endpoint
+     * @return {Object}        [description]
+     */
+    buildOauthHeaders(method, url, isPublic) {
+        const headers = this.buildBaseOauthHeaders(url);
+        headers.oauth_token = isPublic ? '' : this.accessToken;
+        headers.oauth_signature = this.buildSignature(method, headers, isPublic);
+        return headers;
+    }
+
+    /**
+     * Creates the OAuth authentication header
+     * @static
+     * @param  {Object} headers Headers of the request
+     * @return {String}         Header value
+     */
+    buildAuthorizationHeader(method, url, isPublic) {
+        const headers = this.buildOauthHeaders(method, url, isPublic);
+        const authString = 'OAuth ';
+        const params = Object.keys(headers).map(key => `${key}="${headers[key]}"`);
+        return authString + params.join(',');
+    }
+
+    /**
+     * Creates a basic set of requests headers for authentication
+     * @static
+     * @param  {String} url Url of the request
+     * @return {Object}     Object with all the headers
+     */
+    buildBaseOauthHeaders(url) {
+        return {
+            realm: url,
+            oauth_consumer_key: this.appToken,
+            oauth_timestamp: Math.floor(Date.now() / 1000),
+            oauth_nonce: randomBytes(16).toString('hex'),
+            oauth_signature_method: 'HMAC-SHA1',
+            oauth_version: '1.0'
+        };
+    }
+
+    /**
+     * Creates the signature needed for the authentication
+     * @param  {String}  method   HTTP verb used in the request (GET, POST, PUT...)
+     * @param  {Object}  headers  Headers that will go with the request
+     * @param  {Boolean} isPublic Endpoint is public or not
+     * @return {String}           Signature generated with all the previous info
+     */
+    buildSignature(method, headers, isPublic) {
+        const baseString = `${method.toUpperCase()}&amp;${escape(headers.realm)}&amp;`;
+        const secretKey = `${this.appSecret}&amp;${isPublic ? '' : this.accessTokenSecret}`;
+
+        const paramsString = Object.keys(headers).sort().reduce((accum, key, index) => {
+            if (key === 'realm') return accum;
+            if (index === 0) return `${key}=${headers[key]}`;
+            return `${accum}&amp;${key}=${headers[key]}`;
+        }, '');
+
+        const signatureString = baseString + escape(paramsString);
+
+        return createHmac('sha1', secretKey).update(signatureString).digest('base64');
+    }
+}
+
+export default OAuthHelper;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jan 13 2019 00:43:32 GMT+0100 (Hora estándar romance) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

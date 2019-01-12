@@ -1,7 +1,7 @@
 {
   "name": "mkm-api2",
   "version": "0.1.0",
-  "description": "",
+  "description": "Another js library for accessing MKM api",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {

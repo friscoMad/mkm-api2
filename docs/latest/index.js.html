@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>index.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Account.html">Account</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#deleteMessage">deleteMessage</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#deleteMessageThreadWith">deleteMessageThreadWith</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#getMessages">getMessages</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#postMessageTo">postMessageTo</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#setIsOnVacation">setIsOnVacation</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Account.html#setLanguage">setLanguage</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Cart.html">Cart</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#addArticle">addArticle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#checkout">checkout</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#empty">empty</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#get">get</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#getAvailableShippingMethods">getAvailableShippingMethods</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#removeArticle">removeArticle</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#setShippingAddress">setShippingAddress</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#setShippingMethod">setShippingMethod</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Cart.html#updateArticles">updateArticles</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="module-MkmApi.MkmApi.html">MkmApi</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="module-MkmApi.MkmApi.html#makeCall">makeCall</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="OAuthHelper.html">OAuthHelper</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OAuthHelper.html#buildAuthorizationHeader">buildAuthorizationHeader</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OAuthHelper.html#buildBaseOauthHeaders">buildBaseOauthHeaders</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OAuthHelper.html#buildOauthHeaders">buildOauthHeaders</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OAuthHelper.html#buildSignature">buildSignature</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="OAuthHelper.html#changeUser">changeUser</a></span></li><li class="nav-heading">Modules</li><li class="nav-heading"><span class="nav-item-type type-module">M</span><span class="nav-item-name"><a href="module-MkmApi.html">MkmApi</a></span></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">index.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/**
+ * @module MkmApi
+ * @description Description of your library
+ * @example
+ * import MkmApi from 'mkm-api2';
+ *
+ * const api = new MkmApi();
+ * api.account.getAccount().then(data => console.log(data.username));
+ */
+import { OAuthHelper } from './utils/oauth';
+import RequestHandler from './utils/requestHandler';
+import { Account } from './resources/account';
+
+/**
+ * Main api class
+ */
+export class MkmApi {
+    /**
+     * Constructor of the class
+     * @param {Object} options Configuration of the library
+     */
+    constructor({ credentials = null, sandbox = false, useJson = false } = {}) {
+        if (!credentials) {
+            throw new Error('Credentials must be passed in the constructor');
+        }
+        this.oauth = new OAuthHelper(credentials);
+        this.requestHandler = new RequestHandler(useJson, sandbox);
+        this.account = new Account(this);
+    }
+
+    /**
+     * Makes a request to the MKM API
+     * @function
+     * @param  {String}  method   HTTP verb used for the request (GET, POST, PUT, DELETE)
+     * @param  {String}  url      Url of the endpoint (with the needed url parameters)
+     * @param  {Boolean} isPublic If the request is public so a full authorization is not needed
+     * @param  {Object}  params   Parameters that must be sent inside the body of
+     * the request (only for POST, PUT, DELETE)
+     * @return {Promise}          Promise with the result of the request
+     */
+    makeCall(method, url, params = null, isPublic = false) {
+        const finalUrl = this.requestHandler.getBaseUrl() + url;
+        const headers = {
+            Authorization: this.oauth.buildAuthorizationHeader(method, finalUrl, isPublic)
+        };
+        return this.requestHandler.call(method, finalUrl, headers, params);
+    }
+
+    /**
+     * @member {Account} account Account methods
+     */
+}
+
+export default MkmApi;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Sun Jan 13 2019 00:43:32 GMT+0100 (Hora estándar romance) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
