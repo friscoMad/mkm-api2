@@ -4,6 +4,11 @@
   "description": "Another js library for accessing MKM api",
   "main": "dist/index.js",
   "license": "MIT",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/friscoMad/mkm-api2"
+  },
+  "homepage": "https://github.com/friscoMad/mkm-api2#readme",
   "scripts": {
     "build": "cross-env rimraf ./dist && cross-env NODE_ENV=production webpack",
     "doc": "cross-var rimraf ./docs/$npm_package_version && cross-var jsdoc -c .jsdoc.json -d ./docs/$npm_package_version/",
