@@ -6,7 +6,7 @@ The code uses JS Classes and promises for the results.
 
 Minimal usage example (import the module as you need)
 
-'''javascript
+```javascript
 import MkmApi from 'mkm-api2';
 
 const api = new MkmApi({
@@ -25,6 +25,6 @@ api.account.get()
 
 await userData = api.account.get();
 console.log(userData);
-'''
+```
 
 Latest docs are available on: https://friscomad.github.io/mkm-api2/latest
