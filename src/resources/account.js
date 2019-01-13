@@ -15,8 +15,8 @@ export class Account {
      * Get account information
      * @return {Promise} Account information
      */
-    get() {
-        return this.api.makeCall('GET', 'account');
+    async get() {
+        return this.api.makeCall('account');
     }
 
     /**
@@ -24,8 +24,8 @@ export class Account {
      * @param {Boolean} isOnVacation Vacation is enabled
      * @return {Promise} Operation result
      */
-    setIsOnVacation(isOnVacation) {
-        return this.api.makeCall('PUT', `account/vacation/${isOnVacation}`);
+    async setIsOnVacation(isOnVacation) {
+        return this.api.makeCall(`account/vacation/${isOnVacation}`, 'PUT');
     }
 
     /**
@@ -33,16 +33,16 @@ export class Account {
      * @param {int} idLanguage Language code to be set
      * @return {Promise} Operation result
      */
-    setLanguage(idLanguage) {
-        return this.api.makeCall('PUT', `account/language/${idLanguage}`);
+    async setLanguage(idLanguage) {
+        return this.api.makeCall(`account/language/${idLanguage}`, 'PUT');
     }
 
     /**
      * Get all messages
      * @return {Promise} List of messages
      */
-    getMessages() {
-        return this.api.makeCall('GET', 'account/messages');
+    async getMessages() {
+        return this.api.makeCall('account/messages');
     }
 
     /**
@@ -51,8 +51,8 @@ export class Account {
      * @param  {String} message  Content of the message
      * @return {Promise} Operation result
      */
-    postMessageTo(idOtherUser, message) {
-        return this.api.makeCall('POST', `account/messages/${idOtherUser}`, { message });
+    async postMessageTo(idOtherUser, message) {
+        return this.api.makeCall(`account/messages/${idOtherUser}`, 'POST', { message });
     }
 
     /**
@@ -60,8 +60,8 @@ export class Account {
      * @param  {int} idOtherUser User id of the thread
      * @return {Promise} Operation result
      */
-    deleteMessageThreadWith(idOtherUser) {
-        return this.api.makeCall('DELETE', `account/messages/${idOtherUser}`);
+    async deleteMessageThreadWith(idOtherUser) {
+        return this.api.makeCall(`account/messages/${idOtherUser}`, 'DELETE');
     }
 
     /**
@@ -70,8 +70,8 @@ export class Account {
      * @param  {int} idMessage   Message id
      * @return {Promise} Operation result
      */
-    deleteMessage(idOtherUser, idMessage) {
-        return this.api.makeCall('DELETE', `account/messages/${idOtherUser}/${idMessage}`);
+    async deleteMessage(idOtherUser, idMessage) {
+        return this.api.makeCall(`account/messages/${idOtherUser}/${idMessage}`, 'DELETE');
     }
 }
 

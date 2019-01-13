@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Account - Documentation</title>
+    <title>Stock - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Account</h1>
+    <h1 class="page-title">Stock</h1>
     
 
     
@@ -42,10 +42,10 @@
 <header>
     
         <h2>
-        Account
+        Stock
         </h2>
         
-            <div class="class-description"><p>Account management methods</p></div>
+            <div class="class-description"><p>Stock managing functionality</p></div>
         
     
 </header>
@@ -60,7 +60,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="Account"><span class="type-signature"></span>new Account<span class="signature">(api)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Stock"><span class="type-signature"></span>new Stock<span class="signature">(api)</span><span class="type-signature"></span></h4>
 
     
 
@@ -103,7 +103,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_account.js.html">resources/account.js</a>, <a href="resources_account.js.html#line4">line 4</a>
+        <a href="resources_stock.js.html">resources/stock.js</a>, <a href="resources_stock.js.html#line4">line 4</a>
     </li></ul></dd>
     
 
@@ -213,14 +213,14 @@
 
     
 
-    <h4 class="name" id="deleteMessage"><span class="type-signature">(async) </span>deleteMessage<span class="signature">(idOtherUser, idMessage)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="add"><span class="type-signature">(async) </span>add<span class="signature">(articles)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Delete a single message from an user</p>
+    <p>Add one or more articles to your stock</p>
 </div>
 
 
@@ -256,7 +256,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_account.js.html">resources/account.js</a>, <a href="resources_account.js.html#line73">line 73</a>
+        <a href="resources_stock.js.html">resources/stock.js</a>, <a href="resources_stock.js.html#line31">line 31</a>
     </li></ul></dd>
     
 
@@ -300,13 +300,13 @@
 
         <tr>
             
-                <td class="name"><code>idOtherUser</code></td>
+                <td class="name"><code>articles</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>int</code></span>
+<span class="param-type"><code>Array.&lt;Object></code></span>
 
 
             
@@ -317,33 +317,7 @@
             
 
             <td class="description last">
-                <p>User id of the sender</p>
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>idMessage</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>int</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>Message id</p>
+                <p>Articles to be listed</p>
                 
             </td>
         </tr>
@@ -399,14 +373,14 @@
 
     
 
-    <h4 class="name" id="deleteMessageThreadWith"><span class="type-signature">(async) </span>deleteMessageThreadWith<span class="signature">(idOtherUser)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="change"><span class="type-signature">(async) </span>change<span class="signature">(articles)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Delete all messages from an user</p>
+    <p>Modify one or several articles in your stock, it can not be used to change the quantity.</p>
 </div>
 
 
@@ -442,7 +416,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_account.js.html">resources/account.js</a>, <a href="resources_account.js.html#line63">line 63</a>
+        <a href="resources_stock.js.html">resources/stock.js</a>, <a href="resources_stock.js.html#line40">line 40</a>
     </li></ul></dd>
     
 
@@ -486,13 +460,13 @@
 
         <tr>
             
-                <td class="name"><code>idOtherUser</code></td>
+                <td class="name"><code>articles</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>int</code></span>
+<span class="param-type"><code>Array.&lt;Object></code></span>
 
 
             
@@ -503,7 +477,7 @@
             
 
             <td class="description last">
-                <p>User id of the thread</p>
+                <p>Changed articles</p>
                 
             </td>
         </tr>
@@ -559,14 +533,14 @@
 
     
 
-    <h4 class="name" id="get"><span class="type-signature">(async) </span>get<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="delete"><span class="type-signature">(async) </span>delete<span class="signature">(articles)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Get account information</p>
+    <p>Remove articles from your stock</p>
 </div>
 
 
@@ -602,223 +576,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_account.js.html">resources/account.js</a>, <a href="resources_account.js.html#line18">line 18</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>Promise</code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <p>Account information</p>
-</div>
-
-    
-</div>
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="getMessages"><span class="type-signature">(async) </span>getMessages<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Get all messages</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_account.js.html">resources/account.js</a>, <a href="resources_account.js.html#line44">line 44</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>Promise</code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <p>List of messages</p>
-</div>
-
-    
-</div>
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="postMessageTo"><span class="type-signature">(async) </span>postMessageTo<span class="signature">(idOtherUser, message)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Send a message to another user</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_account.js.html">resources/account.js</a>, <a href="resources_account.js.html#line54">line 54</a>
+        <a href="resources_stock.js.html">resources/stock.js</a>, <a href="resources_stock.js.html#line49">line 49</a>
     </li></ul></dd>
     
 
@@ -862,13 +620,13 @@
 
         <tr>
             
-                <td class="name"><code>idOtherUser</code></td>
+                <td class="name"><code>articles</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>int</code></span>
+<span class="param-type"><code>Array.&lt;Object></code></span>
 
 
             
@@ -879,16 +637,319 @@
             
 
             <td class="description last">
-                <p>User id of the recipient</p>
+                <p>Articles to be removed</p>
                 
             </td>
         </tr>
 
     
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p>Operation result</p>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="dereaseAmmount"><span class="type-signature">(async) </span>dereaseAmmount<span class="signature">(articles)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Decrease the ammount of one or several articles
+<em>Attention:</em> Increasing the stock for an article may fail, because we have limitations
+on how many copies of an article different seller types (private, professional) can have
+in their stock. In this case, the response body will have the failed key collecting all
+articles that failed in increasing the copies - in addition to the article key collecting
+all successful increases.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resources_stock.js.html">resources/stock.js</a>, <a href="resources_stock.js.html#line104">line 104</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
 
         <tr>
             
-                <td class="name"><code>message</code></td>
+                <td class="name"><code>articles</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Array.&lt;Object></code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>List of articles to decrease and the amount for each one</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p>Operation result</p>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="findArticles"><span class="type-signature">(async) </span>findArticles<span class="signature">(name, idGame<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Find all articles in your stock from a specified game that matches a name.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resources_stock.js.html">resources/stock.js</a>, <a href="resources_stock.js.html#line76">line 76</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
@@ -901,11 +962,65 @@
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last">
-                <p>Content of the message</p>
+                <p>Name to be searched</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>idGame</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Number</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>Id of game (by default Magic)</p>
                 
             </td>
         </tr>
@@ -946,7 +1061,7 @@
 
 
 <div class="param-desc">
-    <p>Operation result</p>
+    <p>List of articles that matches the query</p>
 </div>
 
     
@@ -961,14 +1076,16 @@
 
     
 
-    <h4 class="name" id="setIsOnVacation"><span class="type-signature">(async) </span>setIsOnVacation<span class="signature">(isOnVacation)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="get"><span class="type-signature">(async) </span>get<span class="signature">(start<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Sets/unsets account on vacation</p>
+    <p>Get the full list of articles published
+<strong>Attention:</strong> Only 1.000 articles will be returned if there are more than that you must
+use the <code>start</code>.</p>
 </div>
 
 
@@ -1004,7 +1121,188 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_account.js.html">resources/account.js</a>, <a href="resources_account.js.html#line27">line 27</a>
+        <a href="resources_stock.js.html">resources/stock.js</a>, <a href="resources_stock.js.html#line22">line 22</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Attributes</th>
+        
+
+        
+        <th>Default</th>
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>start</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Number</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    null
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>Paginate results starting from this element. If set only 100
+elements will be returned by request</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p>List of Articles in stock.</p>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="getArticle"><span class="type-signature">(async) </span>getArticle<span class="signature">(idArticle)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Get all the information of a single article</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resources_stock.js.html">resources/stock.js</a>, <a href="resources_stock.js.html#line66">line 66</a>
     </li></ul></dd>
     
 
@@ -1048,13 +1346,13 @@
 
         <tr>
             
-                <td class="name"><code>isOnVacation</code></td>
+                <td class="name"><code>idArticle</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>Boolean</code></span>
+<span class="param-type"><code>Number</code></span>
 
 
             
@@ -1065,7 +1363,7 @@
             
 
             <td class="description last">
-                <p>Vacation is enabled</p>
+                <p>Id of the article</p>
                 
             </td>
         </tr>
@@ -1106,7 +1404,7 @@
 
 
 <div class="param-desc">
-    <p>Operation result</p>
+    <p>Article information</p>
 </div>
 
     
@@ -1121,14 +1419,14 @@
 
     
 
-    <h4 class="name" id="setLanguage"><span class="type-signature">(async) </span>setLanguage<span class="signature">(idLanguage)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="getInShoppingCart"><span class="type-signature">(async) </span>getInShoppingCart<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Set prefered language</p>
+    <p>Get all articles that are currently in the shopping cart of other users.</p>
 </div>
 
 
@@ -1164,7 +1462,120 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_account.js.html">resources/account.js</a>, <a href="resources_account.js.html#line36">line 36</a>
+        <a href="resources_stock.js.html">resources/stock.js</a>, <a href="resources_stock.js.html#line57">line 57</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p>List of articles</p>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="increaseAmmount"><span class="type-signature">(async) </span>increaseAmmount<span class="signature">(articles)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Increase the ammount of one or several articles
+<em>Attention:</em> Increasing the stock for an article may fail, because we have limitations
+on how many copies of an article different seller types (private, professional) can have
+in their stock. In this case, the response body will have the failed key collecting all
+articles that failed in increasing the copies - in addition to the article key collecting
+all successful increases.</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resources_stock.js.html">resources/stock.js</a>, <a href="resources_stock.js.html#line90">line 90</a>
     </li></ul></dd>
     
 
@@ -1208,13 +1619,13 @@
 
         <tr>
             
-                <td class="name"><code>idLanguage</code></td>
+                <td class="name"><code>articles</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>int</code></span>
+<span class="param-type"><code>Array.&lt;Object></code></span>
 
 
             
@@ -1225,7 +1636,7 @@
             
 
             <td class="description last">
-                <p>Language code to be set</p>
+                <p>List of articles to increase and the amount for each one</p>
                 
             </td>
         </tr>

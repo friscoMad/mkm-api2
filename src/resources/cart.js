@@ -15,8 +15,8 @@ export class Cart {
      * Get the current contents of the shopping cart
      * @return {Promise} Contents of the shopping cart
      */
-    get() {
-        return this.api.makeCall('GET', 'shoppingcart');
+    async get() {
+        return this.api.makeCall('shoppingcart');
     }
 
     /**
@@ -25,7 +25,7 @@ export class Cart {
      * @param {number} amount    Ammount to add or remove (negative numbers remove items)
      * @return {Promise}       Operation result
      */
-    addArticle(idArticle, amount) {
+    async addArticle(idArticle, amount) {
         const params = {
             action: amount < 0 ? 'remove' : 'add',
             article: {
@@ -33,7 +33,7 @@ export class Cart {
                 amount: amount < 0 ? -amount : amount
             }
         };
-        return this.api.makeCall('PUT', 'shoppingcart', params);
+        return this.api.makeCall('shoppingcart', 'PUT', params);
     }
 
     /**
@@ -42,7 +42,7 @@ export class Cart {
      * @param  {number} amount    Amount of elements to be removed
      * @return {Promise}       Operation result
      */
-    removeArticle(idArticle, amount) {
+    async removeArticle(idArticle, amount) {
         return this.addArticles(idArticle, -amount);
     }
 
@@ -53,7 +53,7 @@ export class Cart {
      *  Array of elements to be added or removed.
      * @return {Promise}       Operation result
      */
-    updateArticles(articles) {
+    async updateArticles(articles) {
         if (!Array.isArray(articles)) {
             return Promise.reject(new Error('Invalid parameters'));
         }
@@ -80,23 +80,23 @@ export class Cart {
                 return article;
             })
         };
-        return this.api.makeCall('PUT', 'shoppingcart', params);
+        return this.api.makeCall('shoppingcart', 'PUT', params);
     }
 
     /**
      * Clears the shopping cart
      * @return {Promise}       Operation result
      */
-    empty() {
-        return this.api.makeCall('DELETE', 'shoppingcart');
+    async empty() {
+        return this.api.makeCall('shoppingcart', 'DELETE');
     }
 
     /**
      * Completes the order and pay as many orders as possible with the current funds.
      * @return {Promise}       Operation result
      */
-    checkout() {
-        return this.api.makeCall('PUT', 'shoppingcart/checkout');
+    async checkout() {
+        return this.api.makeCall('shoppingcart/checkout', 'PUT');
     }
 
     /**
@@ -104,8 +104,8 @@ export class Cart {
      * @param {Object} shippingAddress Object with the new address.
      * @return {Promise}       Operation result
      */
-    setShippingAddress(shippingAddress) {
-        return this.api.makeCall('PUT', 'shoppingcart/checkout', shippingAddress);
+    async setShippingAddress(shippingAddress) {
+        return this.api.makeCall('shoppingcart/checkout', 'PUT', shippingAddress);
     }
 
     /**
@@ -115,8 +115,8 @@ export class Cart {
      * with {@link Cart#get}
      * @return {Promise}       Options for shipping that reservation.
      */
-    getAvailableShippingMethods(idReservation) {
-        return this.api.makeCall('GET', `shoppingcart/shippingmethod/${idReservation}`);
+    async getAvailableShippingMethods(idReservation) {
+        return this.api.makeCall(`shoppingcart/shippingmethod/${idReservation}`);
     }
 
     /**
@@ -127,8 +127,8 @@ export class Cart {
      * retrieved with {@link Cart#getAvailableShippingMethods}
      * @return {Promise}       Operation result
      */
-    setShippingMethod(idReservation, idShippingMethod) {
-        return this.api.makeCall('PUT', `shoppingcart/shippingmethod/${idReservation}`, { idShippingMethod });
+    async setShippingMethod(idReservation, idShippingMethod) {
+        return this.api.makeCall(`shoppingcart/shippingmethod/${idReservation}`, 'PUT', { idShippingMethod });
     }
 }
 

@@ -15,7 +15,7 @@ export default class {
         });
     }
 
-    call(method, endpoint, headers, params) {
+    async call(method, endpoint, headers, params, queryParams) {
         const options = {
             method,
             url: endpoint,
@@ -25,7 +25,11 @@ export default class {
         if (params) {
             options.data = this.xmlBuilder.buildObject(params);
         }
-        return axios(options).then((res) => {
+        if (queryParams) {
+            options.params = queryParams;
+        }
+        try {
+            const res = await axios(options);
             if (this.useJson) {
                 return JSON.parse(res.data);
             }
@@ -38,7 +42,7 @@ export default class {
                     }
                 });
             });
-        }).catch((error) => {
+        } catch (error) {
             const res = error.response;
             const errorResponse = {
                 status: res.status,
@@ -55,7 +59,7 @@ export default class {
                 errorResponse.errorMessage = errorMessage;
             }
             return Promise.reject(errorResponse);
-        });
+        }
     }
 
     getBaseUrl() {

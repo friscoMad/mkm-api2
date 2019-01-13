@@ -10,9 +10,18 @@
 import { OAuthHelper } from './utils/oauth';
 import RequestHandler from './utils/requestHandler';
 import { Account } from './resources/account';
+import { Cart } from './resources/cart';
+import { Market } from './resources/market';
+import { Orders } from './resources/orders';
+import { Stock } from './resources/stock';
 
 /**
  * Main api class
+ * @property {Account} account Accessor for all account related functions
+ * @property {Cart} cart Accessor for all shopping cart related functions
+ * @property {Market} market Accessor for all market related functions
+ * @property {Orders} orders Accessor for all order related functions
+ * @property {Stock} stock Accessor for all stock related functions
  */
 export class MkmApi {
     /**
@@ -26,24 +35,30 @@ export class MkmApi {
         this.oauth = new OAuthHelper(credentials);
         this.requestHandler = new RequestHandler(useJson, sandbox);
         this.account = new Account(this);
+        this.cart = new Cart(this);
+        this.market = new Market(this);
+        this.orders = new Orders(this);
+        this.stock = new Stock(this);
     }
 
     /**
      * Makes a request to the MKM API
      * @function
-     * @param  {String}  method   HTTP verb used for the request (GET, POST, PUT, DELETE)
      * @param  {String}  url      Url of the endpoint (with the needed url parameters)
-     * @param  {Boolean} isPublic If the request is public so a full authorization is not needed
-     * @param  {Object}  params   Parameters that must be sent inside the body of
+     * @param  {('GET'|'POST'|'PUT'|'DELETE')}  [method='GET']   HTTP verb used for the
+     * request (GET, POST, PUT, DELETE)
+     * @param  {Object}  [params=null]   Parameters that must be sent inside the body of
      * the request (only for POST, PUT, DELETE)
+     * @param  {Boolean} [isPublic=false] If the request is public so a full authorization
+     * is not needed
      * @return {Promise}          Promise with the result of the request
      */
-    makeCall(method, url, params = null, isPublic = false) {
+    async makeCall(url, method = 'GET', params = null, isPublic = false, queryParams = null) {
         const finalUrl = this.requestHandler.getBaseUrl() + url;
         const headers = {
             Authorization: this.oauth.buildAuthorizationHeader(method, finalUrl, isPublic)
         };
-        return this.requestHandler.call(method, finalUrl, headers, params);
+        return this.requestHandler.call(method, finalUrl, headers, params, queryParams);
     }
 
     /**
