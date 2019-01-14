@@ -9,6 +9,6 @@ const api = new MkmApi2({
         accessTokenSecret: 'syOTmQpEptHJ5msBaosR0FHNja0TiOqu'
     },
     sandbox: true});
-api.account.getMessages()
+api.account.get()
     .then(data => console.log(data))
     .catch(error => console.error(error));

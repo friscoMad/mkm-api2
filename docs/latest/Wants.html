@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Cart - Documentation</title>
+    <title>Wants - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Cart</h1>
+    <h1 class="page-title">Wants</h1>
     
 
     
@@ -42,10 +42,10 @@
 <header>
     
         <h2>
-        Cart
+        Wants
         </h2>
         
-            <div class="class-description"><p>Cart management methods</p></div>
+            <div class="class-description"><p>Want list endpoints</p></div>
         
     
 </header>
@@ -60,7 +60,7 @@
     <h2>Constructor</h2>
     
 
-    <h4 class="name" id="Cart"><span class="type-signature"></span>new Cart<span class="signature">(api)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id="Wants"><span class="type-signature"></span>new Wants<span class="signature">(api)</span><span class="type-signature"></span></h4>
 
     
 
@@ -103,7 +103,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_cart.js.html">resources/cart.js</a>, <a href="resources_cart.js.html#line4">line 4</a>
+        <a href="resources_wants.js.html">resources/wants.js</a>, <a href="resources_wants.js.html#line4">line 4</a>
     </li></ul></dd>
     
 
@@ -213,14 +213,14 @@
 
     
 
-    <h4 class="name" id="addArticle"><span class="type-signature">(async) </span>addArticle<span class="signature">(idArticle, amount)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="addItems"><span class="type-signature">(async) </span>addItems<span class="signature">(idList, items)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Adds or remove an article from the shopping cart</p>
+    <p>Add items to the want list</p>
 </div>
 
 
@@ -256,7 +256,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_cart.js.html">resources/cart.js</a>, <a href="resources_cart.js.html#line28">line 28</a>
+        <a href="resources_wants.js.html">resources/wants.js</a>, <a href="resources_wants.js.html#line71">line 71</a>
     </li></ul></dd>
     
 
@@ -300,13 +300,13 @@
 
         <tr>
             
-                <td class="name"><code>idArticle</code></td>
+                <td class="name"><code>idList</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>number</code></span>
+<span class="param-type"><code>Number</code></span>
 
 
             
@@ -317,7 +317,7 @@
             
 
             <td class="description last">
-                <p>id of the article</p>
+                <p>Id of the want list</p>
                 
             </td>
         </tr>
@@ -326,13 +326,13 @@
 
         <tr>
             
-                <td class="name"><code>amount</code></td>
+                <td class="name"><code>items</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>number</code></span>
+<span class="param-type"><code>Array.&lt;Object></code></span>
 
 
             
@@ -343,7 +343,7 @@
             
 
             <td class="description last">
-                <p>Ammount to add or remove (negative numbers remove items)</p>
+                <p>Products or metaproducts to add</p>
                 
             </td>
         </tr>
@@ -399,14 +399,14 @@
 
     
 
-    <h4 class="name" id="checkout"><span class="type-signature">(async) </span>checkout<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="changeName"><span class="type-signature">(async) </span>changeName<span class="signature">(idList, name)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Completes the order and pay as many orders as possible with the current funds.</p>
+    <p>Change the name of a want list</p>
 </div>
 
 
@@ -442,332 +442,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_cart.js.html">resources/cart.js</a>, <a href="resources_cart.js.html#line98">line 98</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>Promise</code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <p>Operation result</p>
-</div>
-
-    
-</div>
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="empty"><span class="type-signature">(async) </span>empty<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Clears the shopping cart</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_cart.js.html">resources/cart.js</a>, <a href="resources_cart.js.html#line90">line 90</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>Promise</code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <p>Operation result</p>
-</div>
-
-    
-</div>
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="get"><span class="type-signature">(async) </span>get<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Get the current contents of the shopping cart</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_cart.js.html">resources/cart.js</a>, <a href="resources_cart.js.html#line18">line 18</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>Promise</code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <p>Contents of the shopping cart</p>
-</div>
-
-    
-</div>
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="getShippingMethods"><span class="type-signature">(async) </span>getShippingMethods<span class="signature">(idReservation)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Gets the list of all possible shipping methods for a reservation
-(all the items from a single user)</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_cart.js.html">resources/cart.js</a>, <a href="resources_cart.js.html#line118">line 118</a>
+        <a href="resources_wants.js.html">resources/wants.js</a>, <a href="resources_wants.js.html#line61">line 61</a>
     </li></ul></dd>
     
 
@@ -811,13 +486,13 @@
 
         <tr>
             
-                <td class="name"><code>idReservation</code></td>
+                <td class="name"><code>idList</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>number</code></span>
+<span class="param-type"><code>Number</code></span>
 
 
             
@@ -828,168 +503,7 @@
             
 
             <td class="description last">
-                <p>id of the reservation, it can be retrieved
-with <a href="Cart.html#get"><code>Cart#get</code></a></p>
-                
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>Promise</code></span>
-
-
-    </dd>
-</dl>
-
-
-<div class="param-desc">
-    <p>Options for shipping that reservation.</p>
-</div>
-
-    
-</div>
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id="removeArticle"><span class="type-signature">(async) </span>removeArticle<span class="signature">(idArticle, amount)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
-
-    
-
-
-
-<div class="description">
-    <p>Removes an article from the shopping cart</p>
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_cart.js.html">resources/cart.js</a>, <a href="resources_cart.js.html#line45">line 45</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>idArticle</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>number</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>id of the Article to be removed</p>
+                <p>Id of the want list</p>
                 
             </td>
         </tr>
@@ -998,13 +512,13 @@ with <a href="Cart.html#get"><code>Cart#get</code></a></p>
 
         <tr>
             
-                <td class="name"><code>amount</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>number</code></span>
+<span class="param-type"><code>String</code></span>
 
 
             
@@ -1015,7 +529,7 @@ with <a href="Cart.html#get"><code>Cart#get</code></a></p>
             
 
             <td class="description last">
-                <p>Amount of elements to be removed</p>
+                <p>New name for the want list</p>
                 
             </td>
         </tr>
@@ -1071,14 +585,14 @@ with <a href="Cart.html#get"><code>Cart#get</code></a></p>
 
     
 
-    <h4 class="name" id="setShippingAddress"><span class="type-signature">(async) </span>setShippingAddress<span class="signature">(shippingAddress)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="createList"><span class="type-signature">(async) </span>createList<span class="signature">(name, idGame<span class="signature-attributes">opt</span>)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Updates the shipping address for all the items in the cart.</p>
+    <p>Creates a new want list</p>
 </div>
 
 
@@ -1114,7 +628,7 @@ with <a href="Cart.html#get"><code>Cart#get</code></a></p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_cart.js.html">resources/cart.js</a>, <a href="resources_cart.js.html#line107">line 107</a>
+        <a href="resources_wants.js.html">resources/wants.js</a>, <a href="resources_wants.js.html#line28">line 28</a>
     </li></ul></dd>
     
 
@@ -1146,7 +660,11 @@ with <a href="Cart.html#get"><code>Cart#get</code></a></p>
         <th>Type</th>
 
         
+        <th>Attributes</th>
+        
 
+        
+        <th>Default</th>
         
 
         <th class="last">Description</th>
@@ -1158,24 +676,78 @@ with <a href="Cart.html#get"><code>Cart#get</code></a></p>
 
         <tr>
             
-                <td class="name"><code>shippingAddress</code></td>
+                <td class="name"><code>name</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>Object</code></span>
+<span class="param-type"><code>String</code></span>
 
 
             
             </td>
 
             
+                <td class="attributes">
+                
 
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                </td>
             
 
             <td class="description last">
-                <p>Object with the new address.</p>
+                <p>Name of the new want list</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>idGame</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Number</code></span>
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+                <td class="default">
+                
+                    1
+                
+                </td>
+            
+
+            <td class="description last">
+                <p>Id of the game associated to the want list (default Magic)</p>
                 
             </td>
         </tr>
@@ -1231,14 +803,14 @@ with <a href="Cart.html#get"><code>Cart#get</code></a></p>
 
     
 
-    <h4 class="name" id="setShippingMethod"><span class="type-signature">(async) </span>setShippingMethod<span class="signature">(idReservation, idShippingMethod)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="deleteList"><span class="type-signature">(async) </span>deleteList<span class="signature">(idList)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Sets the shipping method for a single reservation.</p>
+    <p>Delete a whole want list</p>
 </div>
 
 
@@ -1274,7 +846,7 @@ with <a href="Cart.html#get"><code>Cart#get</code></a></p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_cart.js.html">resources/cart.js</a>, <a href="resources_cart.js.html#line130">line 130</a>
+        <a href="resources_wants.js.html">resources/wants.js</a>, <a href="resources_wants.js.html#line100">line 100</a>
     </li></ul></dd>
     
 
@@ -1318,13 +890,13 @@ with <a href="Cart.html#get"><code>Cart#get</code></a></p>
 
         <tr>
             
-                <td class="name"><code>idReservation</code></td>
+                <td class="name"><code>idList</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>number</code></span>
+<span class="param-type"><code>Number</code></span>
 
 
             
@@ -1335,35 +907,7 @@ with <a href="Cart.html#get"><code>Cart#get</code></a></p>
             
 
             <td class="description last">
-                <p>id of the reservation, it can be retrieved
-with <a href="Cart.html#get"><code>Cart#get</code></a></p>
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>idShippingMethod</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>number</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                <p>id of the shipping method, it can be
-retrieved with <code>Cart#getAvailableShippingMethods</code></p>
+                <p>If of the want list</p>
                 
             </td>
         </tr>
@@ -1419,15 +963,14 @@ retrieved with <code>Cart#getAvailableShippingMethods</code></p>
 
     
 
-    <h4 class="name" id="updateArticles"><span class="type-signature">(async) </span>updateArticles<span class="signature">(articles)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+    <h4 class="name" id="deleteWants"><span class="type-signature">(async) </span>deleteWants<span class="signature">(idList, wants)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
 
     
 
 
 
 <div class="description">
-    <p>Upadte shopping cart, with this method multiple items can be added or removed from the
-shopping cart but MKM does not support adding and removing at the same time.</p>
+    <p>Delete wants from a want list</p>
 </div>
 
 
@@ -1463,7 +1006,7 @@ shopping cart but MKM does not support adding and removing at the same time.</p>
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="resources_cart.js.html">resources/cart.js</a>, <a href="resources_cart.js.html#line56">line 56</a>
+        <a href="resources_wants.js.html">resources/wants.js</a>, <a href="resources_wants.js.html#line91">line 91</a>
     </li></ul></dd>
     
 
@@ -1507,13 +1050,13 @@ shopping cart but MKM does not support adding and removing at the same time.</p>
 
         <tr>
             
-                <td class="name"><code>articles</code></td>
+                <td class="name"><code>idList</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>Array.&lt;{idArticle: number, amount: number}></code></span>
+<span class="param-type"><code>Number</code></span>
 
 
             
@@ -1524,7 +1067,33 @@ shopping cart but MKM does not support adding and removing at the same time.</p>
             
 
             <td class="description last">
-                <p>Array of elements to be added or removed.</p>
+                <p>Id of the want list</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>wants</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Array.&lt;Object></code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>List of wants to delete</p>
                 
             </td>
         </tr>
@@ -1566,6 +1135,460 @@ shopping cart but MKM does not support adding and removing at the same time.</p>
 
 <div class="param-desc">
     <p>Operation result</p>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="editWants"><span class="type-signature">(async) </span>editWants<span class="signature">(idList, wants)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Modify already stored wants</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resources_wants.js.html">resources/wants.js</a>, <a href="resources_wants.js.html#line81">line 81</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>idList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Id of the want list</p>
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>wants</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Array.&lt;Object></code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Changed wants</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p>Operation result</p>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="getLists"><span class="type-signature">(async) </span>getLists<span class="signature">()</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Get all want lists</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resources_wants.js.html">resources/wants.js</a>, <a href="resources_wants.js.html#line18">line 18</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p>Lists with all the want lists of the user</p>
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id="getProducts"><span class="type-signature">(async) </span>getProducts<span class="signature">(idList)</span><span class="type-signature"> &rarr; {Promise}</span></h4>
+
+    
+
+
+
+<div class="description">
+    <p>Get all products and metaproducts of the want list</p>
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="resources_wants.js.html">resources/wants.js</a>, <a href="resources_wants.js.html#line37">line 37</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>idList</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                <p>Id of the list</p>
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>Promise</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    <p>List of wants in the want list</p>
 </div>
 
     

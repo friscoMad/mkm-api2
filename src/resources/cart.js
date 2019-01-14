@@ -115,7 +115,7 @@ export class Cart {
      * with {@link Cart#get}
      * @return {Promise}       Options for shipping that reservation.
      */
-    async getAvailableShippingMethods(idReservation) {
+    async getShippingMethods(idReservation) {
         return this.api.makeCall(`shoppingcart/shippingmethod/${idReservation}`);
     }
 

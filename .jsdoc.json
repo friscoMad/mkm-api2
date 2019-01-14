@@ -12,15 +12,18 @@
     "plugins/markdown"
   ],
   "templates": {
-    "cleverLinks": false,
-    "monospaceLinks": true,
+    "cleverLinks": true,
+    "monospaceLinks": false,
     "useLongnameInNav": false,
-    "showInheritedInNav": true
+    "showInheritedInNav": true,
+    "default": {
+        "includeDate": false
+    }
   },
   "opts": {
     "destination": "./docs/",
     "encoding": "utf8",
-    "private": true,
+    "private": false,
     "recurse": true,
     "template": "./node_modules/minami"
   }

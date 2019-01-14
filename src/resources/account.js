@@ -21,11 +21,13 @@ export class Account {
 
     /**
      * Sets/unsets account on vacation
-     * @param {Boolean} isOnVacation Vacation is enabled
+     * @param {Boolean} onVacation Vacation is enabled
+     * @param  {Boolean} [cancelOrders=false] Cancel all orders if possible or at least request it.
+     * @param  {Boolean} [relistItems=false] Relist all items when cancellation resolves
      * @return {Promise} Operation result
      */
-    async setIsOnVacation(isOnVacation) {
-        return this.api.makeCall(`account/vacation/${isOnVacation}`, 'PUT');
+    async setVacationMode(onVacation, cancelOrders = false, relistItems = false) {
+        return this.api.makeCall('account/vacation', 'PUT', null, false, { onVacation, cancelOrders, relistItems });
     }
 
     /**
@@ -34,44 +36,44 @@ export class Account {
      * @return {Promise} Operation result
      */
     async setLanguage(idLanguage) {
-        return this.api.makeCall(`account/language/${idLanguage}`, 'PUT');
+        return this.api.makeCall('account/language', 'PUT', null, false, { idDisplayLanguage: idLanguage });
     }
 
     /**
-     * Get all messages
-     * @return {Promise} List of messages
+     * Redeem one or multiple coupons
+     * @param  {String|String[]}  coupons One or multiple coupons to be redeemed
+     * @return {Promise}         Operation result
      */
-    async getMessages() {
-        return this.api.makeCall('account/messages');
+    async redeemCoupon(coupons) {
+        return this.api.makeCall('account/redeem_coupon', 'POST', { couponCode: coupons });
     }
 
     /**
-     * Send a message to another user
-     * @param  {int} idOtherUser User id of the recipient
-     * @param  {String} message  Content of the message
-     * @return {Promise} Operation result
+     * Ask for a password reset. <br>
+     * One of the params must be defined if both are it will use only the email
+     * @param  {String}  [email=null]    Email of the account
+     * @param  {String}  [username=null] Username
+     * @return {Promise}  Operation result
      */
-    async postMessageTo(idOtherUser, message) {
-        return this.api.makeCall(`account/messages/${idOtherUser}`, 'POST', { message });
+    async resetPassword(email = null, username = null) {
+        const params = {};
+        if (email) {
+            params.email = email;
+        } else if (username) {
+            params.username = username;
+        } else {
+            throw Error('Must pass username or email');
+        }
+        return this.api.makeCall('account/logindata', 'POST', params, true, { type: 'password' });
     }
 
     /**
-     * Delete all messages from an user
-     * @param  {int} idOtherUser User id of the thread
-     * @return {Promise} Operation result
+     * Ask for the recovery of an user by passing it's mail address
+     * @param  {String}  email Email address of the user
+     * @return {Promise} Username
      */
-    async deleteMessageThreadWith(idOtherUser) {
-        return this.api.makeCall(`account/messages/${idOtherUser}`, 'DELETE');
-    }
-
-    /**
-     * Delete a single message from an user
-     * @param  {int} idOtherUser User id of the sender
-     * @param  {int} idMessage   Message id
-     * @return {Promise} Operation result
-     */
-    async deleteMessage(idOtherUser, idMessage) {
-        return this.api.makeCall(`account/messages/${idOtherUser}/${idMessage}`, 'DELETE');
+    async recoverUsername(email) {
+        return this.api.makeCall('account/logindata', 'POST', { email }, true, { type: 'username' });
     }
 }
 
