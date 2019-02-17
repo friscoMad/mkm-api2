@@ -45,7 +45,7 @@ export class Account {
      * @return {Promise}         Operation result
      */
     async redeemCoupon(coupons) {
-        return this.api.makeCall('account/redeem_coupon', 'POST', { couponCode: coupons });
+        return this.api.makeCall('account/coupon', 'POST', { couponCode: coupons });
     }
 
     /**

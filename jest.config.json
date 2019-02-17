@@ -5,5 +5,7 @@
         "!src/index.js",
         "!src/global.js"
     ],
-    "coverageReporters": ["lcov", "text", "text-summary"]
+    "coverageReporters": ["lcov", "text", "text-summary"],
+    "setupTestFrameworkScriptFile": "<rootDir>/jest/setupTest.js",
+    "setupFiles": ["<rootDir>/jest/setupEnv.js"]
 }

@@ -1,20 +1,10 @@
-import MkmApi from '../index.js';
+import api from './apiInstances';
 
-const api = new MkmApi({
-    //These are just a sandbox credentials
-    credentials: {
-        appToken: 'qmQXmXKrZ4kFx2Kc',
-        appSecret: 'dmE4gHu7fMTgV06l1jpgHuc31gInACum',
-        accessToken: 'afikzZqRJhboaipjdwPERcMronCq1JmI',
-        accessTokenSecret: 'syOTmQpEptHJ5msBaosR0FHNja0TiOqu'
-    },
-    sandbox: true});
-
-test('get Account works', () => {
+test.nock('get Account works', () => {
     return api.account.get().then(data => expect(data).toHaveProperty('account'));
 });
 
-test('set Vacation Mode', async () => {
+test.nock('set Vacation Mode', async () => {
     expect.assertions(2);
     await api.account.setVacationMode(true);
     let response = await api.account.get();
@@ -24,7 +14,7 @@ test('set Vacation Mode', async () => {
     expect(response.account.onVacation).toBe(false);
 });
 
-test('setLanguage', async () => {
+test.nock('setLanguage', async () => {
     expect.assertions(2);
     await api.account.setLanguage(1);
     let response = await api.account.get();
@@ -35,23 +25,45 @@ test('setLanguage', async () => {
     expect(response.account.idDisplayLanguage).toBe(3);
 });
 
-describe.skip('username/password reset', () => {
-    let account;
+//Not sure why those are not working unless using fully authneticated data as it makes no sense
+describe.only('username/password reset', () => {
+    let account = {
+        email: 'rapariciog@gmail.com',
+        username: 'friscoTest'
+    }
 
-    beforeAll(async () => {
-        let response = await api.account.get();
-        account = response.account;
-    });
+    // beforeAll.nock(async () => {
+    //     let response = await api.account.get();
+    //     account = response.account;
+    // });
 
-    it('must work with email', () => {
+    it.nock('must work with email', () => {
         return api.account.resetPassword(account.email);
     });
 
-    it('must work with username', () => {
+    it.nock('must fail with random email', async () => {
+        expect.assertions(1);
+        try {
+            await api.account.resetPassword('this.do.not@exists.com');
+        } catch (e) {
+            expect(e).toBeDefined();
+        }
+    });
+
+    it.nock('must work with username', () => {
         return api.account.resetPassword(null, account.username);
     });
 
-    it('must throw if nothing is passed', async () => {
+    it.nock('must fail with random username',  async () => {
+        expect.assertions(1);
+        try {
+            await api.account.resetPassword('this.do.not.exists.com');
+        } catch (e) {
+            expect(e).toBeDefined();
+        }
+    });
+
+    it.nock('must throw if nothing is passed', async () => {
         expect.assertions(1);
         try {
             await api.account.resetPassword();
@@ -60,8 +72,28 @@ describe.skip('username/password reset', () => {
         }
     });
 
-    it('must recover the username', () => {
+    it.nock('must recover the username', () => {
         return api.account.recoverUsername(account.email);
     })
 
+    it.nock('must not recover with random username', async () => {
+        expect.assertions(1);
+        try {
+            await api.account.recoverUsername('this.do.not.exists.com');
+        } catch (e) {
+            expect(e).toBeDefined();
+        }
+    });
+
 });
+
+describe('coupons', () => {
+    it.only.nock('should redeem a coupon', () => {
+        return api.account.redeemCoupon('ZWIKVUPS')
+    });
+
+    it.only.nock('should redeem multiple coupons', () => {
+        return api.account.redeemCoupon(['ZWIKVUPS', 'AAXUUQCD'])
+    });
+
+})

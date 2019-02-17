@@ -5,3 +5,6 @@ npm-debug.log
 .cache/
 example/dist/
 coverage/
+.env
+# Ignore nocks data by now
+src/__tests__/__nocks__
